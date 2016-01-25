@@ -11,6 +11,8 @@ env:
     - FO1=BUBU
     - BOO=GUBU
 
+services:
+   - elasticsearch
  
 build:
   # pre_ci:
