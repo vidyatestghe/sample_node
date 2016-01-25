@@ -1,24 +1,68 @@
-# Language setting
 language: node_js
 
 # Version number
 node_js:
-  - 0.10.25
+  - 0.12
+ # - 0.11
 
-# The path for Xunit to output test reports
 env:
-  - XUNIT_FILE=shippable/testresults/result.xml
+  global:
+    #- FOO=FUBU
+    - FO1=BUBU
+    - BOO=GUBU
 
-# Create directories for test and coverage reports
-before_script:
-  - mkdir -p shippable/testresults
-  - mkdir -p shippable/codecoverage
+ 
+build:
+  # pre_ci:
+   # - docker build --rm -t=shippabledocker/ .
 
-# Running the tests with grunt
-script:
-  - grunt
+  pre_ci_boot:
+    image_name: drydock/u12nodall
+    image_tag:  prod
+    pull: true
+    env: FOO=BAR
+    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
-# Tell istanbul to generate a coverage report
-after_script:
-  - ./node_modules/.bin/istanbul cover grunt -- -u tdd
-  - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
+  ci:
+    - ps -eax
+    - ls -al
+    - echo $FOO
+    - echo $FO1
+    - echo $BOO
+ 
+  branches:
+    only:
+     - master
+
+#  post_ci:
+ #   - docker build --rm -t=shippabledocker/vidya_sample_node2 . 
+  #  - docker push shippabledocker/vidya_sample_node2
+  smoke_test:
+    - sudo ls /
+
+deploy:
+  pre_build:
+    - ls
+    - ls -al
+
+integrations:
+  notification:
+    - integrationName: "slack-pvt"
+      type: slack
+      recipients:
+        - pvt-channel
+      branches:
+        only:
+          - master
+      on_start: always
+      on_success: always
+      on_failure: always
+      on_pull_request: always
+    
+
+  hub:
+    - integrationName: "ship-docker"
+      type: docker
+      branches:
+        only:
+          - master
