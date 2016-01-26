@@ -65,6 +65,4 @@ integrations:
         only:
           - master
           
-branches:
-  only:
-    - master
+
