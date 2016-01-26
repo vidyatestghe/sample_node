@@ -19,7 +19,7 @@ build:
     image_name: gcr.io/shipayeone-project/img1
     image_tag: latest
     pull: false
-    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+    options: '--privileged=false --net=bridge -e FOO=true -e BOO=false'
 
   ci:
     - ps -eax
