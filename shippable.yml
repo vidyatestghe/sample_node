@@ -18,7 +18,7 @@ build:
 
   pre_ci_boot:
     image_name: shipayeone/sample_node
-    image_tag:  nod_01
+    image_tag:  latest
     pull: false
     env: FOO=BAR
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
