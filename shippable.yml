@@ -29,7 +29,7 @@ build:
     
 
   post_ci:
-    - docker push shipayeone/sample_node2:nod_01
+    - docker push shipayeone/sample_node
 
   smoke_test:
     - sudo ls /
