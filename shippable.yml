@@ -3,37 +3,30 @@ language: node_js
 # Version number
 node_js:
   - 0.12
-  - 0.11
-  - 5.0
- 
 
 env:
   global:
-    #- FOO=FUBU
+    - FOO=FUBU
     - FO1=BUBU
     - BOO=GUBU
 
- 
+
 build:
-  #pre_ci:
-   # - docker build --rm -t=shipayeone/sample_node .
+  pre_ci:
+    - docker build --rm -t=gcr.io/shipayeone-project/img1 .
 
   pre_ci_boot:
-    image_name: drydock/u12nodall
-    image_tag:  prod
-    pull: true
-    env: FOO=BAR
+    image_name: gcr.io/shipayeone-project/img1
+    image_tag: latest
+    pull: false
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   ci:
     - ps -eax
     - ls -al
-    - npm install
-    - grunt
-    
 
- # post_ci:
-  #  - docker push shipayeone/sample_node
+  post_ci:
+    - docker push gcr.io/shipayeone-project/img1
 
   smoke_test:
     - sudo ls /
@@ -45,7 +38,7 @@ deploy:
 
 integrations:
   notification:
-    - integrationName: "slack-pvt"
+    - integrationName: "vidya-slack"
       type: slack
       recipients:
         - pvt-channel
@@ -59,10 +52,9 @@ integrations:
     
 
   hub:
-    - integrationName: "shipayeone-docker"
-      type: docker
+    - integrationName: "gcr-shiptest"
+      type: gcr
       branches:
         only:
           - master
-          
-
+  
