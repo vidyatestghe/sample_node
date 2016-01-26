@@ -13,7 +13,7 @@ env:
 
  
 build:
-   pre_ci:
+  pre_ci:
     - docker build --rm -t=shipayeone/sample_node .
 
   pre_ci_boot:
