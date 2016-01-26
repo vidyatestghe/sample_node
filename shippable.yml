@@ -24,6 +24,8 @@ build:
   ci:
     - ps -eax
     - ls -al
+    - npm install
+    - npm test
 
   post_ci:
     - docker push gcr.io/shipayeone-project/img1
