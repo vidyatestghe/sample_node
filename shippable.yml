@@ -4,14 +4,17 @@ language: node_js
 node_js:
   - 0.12
   - 0.11
-  - 5.0
+ 
  
 
 env:
   global:
-    #- FOO=FUBU
+    - FOO=FUBU
     - FO1=BUBU
     - BOO=GUBU
+  matrix:
+    - M1=one
+    - M2=two
 
  
 build:
@@ -28,6 +31,7 @@ build:
   ci:
     - ps -eax
     - ls -al
+    - echo $M1 and echo $M2
     - npm install
     - grunt
     
