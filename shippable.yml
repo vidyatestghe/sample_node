@@ -13,10 +13,10 @@ env:
 
 build:
   pre_ci:
-    - docker build --rm -t=gcr.io/shipayeone-project/img1 .
+    - docker build --rm -t=gcr.io/vidya-project/img1 .
 
   pre_ci_boot:
-    image_name: gcr.io/shipayeone-project/img1
+    image_name: gcr.io/vidya-project/img1
     image_tag: latest
     pull: false
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
@@ -28,7 +28,7 @@ build:
     - npm test
 
   post_ci:
-    - docker push gcr.io/shipayeone-project/img1
+    - docker push gcr.io/vidya-project/img1
 
   smoke_test:
     - sudo ls /
