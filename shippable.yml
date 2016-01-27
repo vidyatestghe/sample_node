@@ -36,10 +36,10 @@ build:
     - echo $FOO
     - echo $FO1
     - echo $BOO
+    - npm install
+    - npm test
  
-  branches:
-    only:
-     - master
+  
 
 #  post_ci:
  #   - docker build --rm -t=shippabledocker/vidya_sample_node2 . 
