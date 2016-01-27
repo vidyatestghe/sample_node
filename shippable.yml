@@ -3,6 +3,7 @@ language: node_js
 # Version number
 node_js:
   - 0.12
+  
 git:
  submodules: false
 
