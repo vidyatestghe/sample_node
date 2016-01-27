@@ -53,7 +53,7 @@ integrations:
     
 
   hub:
-    - integrationName: "gcr-shiptest"
+    - integrationName: "shipayeone-gcr"
       type: gcr
       branches:
         only:
