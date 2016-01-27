@@ -1,0 +1,3 @@
+[submodule "dockerbuild-app"]
+	path = dockerbuild-app
+	url = https://github.com/vidyar/dockerbuild-app.git
