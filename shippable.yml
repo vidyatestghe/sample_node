@@ -63,8 +63,8 @@ integrations:
     
 
   hub:
-    - integrationName: "ship-docker"
-      type: docker
+    - integrationName: "shipayeone-quay "
+      type: quay
       branches:
         only:
           - master
