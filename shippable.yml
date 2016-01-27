@@ -10,7 +10,6 @@ env:
     - FO1=BUBU
     - BOO=GUBU
 
-
 build:
   pre_ci:
     - docker build --rm -t=gcr.io/shipayeone-project/img1 .
