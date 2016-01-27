@@ -15,8 +15,8 @@ env:
 
  
 build:
-   pre_ci:
-     - docker build --rm -t=shippablequay/sample_node_01 .
+  pre_ci:
+    - docker build --rm -t=shippablequay/sample_node_01 .
 
   pre_ci_boot:
     image_name: shippablequay/sample_node_01 
