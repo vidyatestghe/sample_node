@@ -45,24 +45,4 @@ deploy:
     - ls
     - ls -al
 
-integrations:
-  notification:
-    - integrationName: "slack-pvt"
-      type: slack
-      recipients:
-        - pvt-channel
-      branches:
-        only:
-          - master
-      on_start: always
-      on_success: always
-      on_failure: always
-      on_pull_request: always
-    
 
-  hub:
-    - integrationName: "ship-docker"
-      type: docker
-      branches:
-        only:
-          - master
