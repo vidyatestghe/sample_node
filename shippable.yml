@@ -15,15 +15,15 @@ env:
 
  
 build:
-  pre_ci:
-    - docker build --rm -t=quay.io/shippablequay/sample_node_01 .
+ # pre_ci:
+  #  - docker build --rm -t=quay.io/shippablequay/sample_node_01 .
 
-  pre_ci_boot:
-    image_name: quay.io/shippablequay/sample_node_01 
-    image_tag:  latest
-    pull: false
-    env: FOO=BAR
-    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+  #pre_ci_boot:
+   # image_name: quay.io/shippablequay/sample_node_01 
+  #  image_tag:  latest
+   # pull: false
+    #env: FOO=BAR
+    #options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   ci:
     - ps -eax
@@ -36,9 +36,9 @@ build:
  
   
 
-  post_ci:
+  #post_ci:
  #   - docker build --rm -t=shippabledocker/vidya_sample_node2 . 
-     - docker push quay.io/shippablequay/sample_node_01
+     #- docker push quay.io/shippablequay/sample_node_01
   smoke_test:
     - sudo ls /
 
