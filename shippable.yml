@@ -65,6 +65,4 @@ integrations:
   hub:
     - integrationName: "shipayeone-quay "
       type: quay
-      branches:
-        only:
-          - master
+      
