@@ -16,13 +16,13 @@ env:
 cache: true
  
 build:
-  pre_ci:
-    - docker build --rm -t=quay.io/shippablequay/sample_node_01 .
+  #pre_ci:
+  #  - docker build --rm -t=quay.io/shippablequay/sample_node_02 .
 
   pre_ci_boot:
-    image_name: quay.io/shippablequay/sample_node_01 
-    image_tag:  latest
-    pull: false
+    image_name: drydock/u12nodall
+    image_tag:  prod
+    pull: true
     env: FOO=BAR
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
@@ -38,8 +38,8 @@ build:
   
 
   post_ci:
- #   - docker build --rm -t=shippabledocker/vidya_sample_node2 . 
-     - docker push quay.io/shippablequay/sample_node_01
+    - docker build --rm -t=shippabledocker/vidya_sample_node02 . 
+    - docker push quay.io/shippablequay/sample_node_02
   smoke_test:
     - sudo ls /
 
