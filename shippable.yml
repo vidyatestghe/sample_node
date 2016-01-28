@@ -13,6 +13,7 @@ env:
     - FO1=BUBU
     - BOO=GUBU
 
+cache: true
  
 build:
   pre_ci:
