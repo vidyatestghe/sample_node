@@ -64,6 +64,6 @@ integrations:
     
 
   hub:
-    - integrationName: "shipayeone-quay "
+    - integrationName: "shipayeone-quay"
       type: quay
       
